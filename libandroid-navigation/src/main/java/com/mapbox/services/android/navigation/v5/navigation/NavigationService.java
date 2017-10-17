@@ -13,7 +13,6 @@ import android.support.annotation.Nullable;
 import com.mapbox.directions.v5.models.DirectionsRoute;
 import com.mapbox.geojson.Point;
 import com.mapbox.services.android.navigation.R;
-import com.mapbox.services.android.navigation.v5.milestone.ApiMilestone;
 import com.mapbox.services.android.navigation.v5.milestone.Milestone;
 import com.mapbox.services.android.navigation.v5.routeprogress.RouteProgress;
 import com.mapbox.services.android.navigation.v5.utils.RingBuffer;
@@ -239,9 +238,6 @@ public class NavigationService extends Service implements LocationEngineListener
   public void onMilestoneTrigger(List<Milestone> triggeredMilestones, RouteProgress routeProgress) {
     for (Milestone milestone : triggeredMilestones) {
       String instruction = buildInstructionString(routeProgress, milestone);
-      if (milestone.getIdentifier() == 1567) {
-        instruction = ((ApiMilestone) milestone).announcement();
-      }
       mapboxNavigation.getEventDispatcher().onMilestoneEvent(
         routeProgress, instruction, milestone.getIdentifier());
     }
