@@ -91,7 +91,7 @@ public class NavigationView extends CoordinatorLayout implements OnMapReadyCallb
   public NavigationView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-    ThemeSwitcher.setTheme(getContext());
+    ThemeSwitcher.setTheme(getContext(), attrs);
     init();
   }
 
